@@ -85,6 +85,11 @@ app.post('/api/info', function (request, response, next) {
   });
 });
 
+app.get('/t', function(request,response){
+  console.log("broo this is lol")
+  try{response.send("Yoloppp99000 bro")}
+  catch{response.send("brooo")}
+})
 // Create a link token with configs which we can then use to initialize Plaid Link client-side.
 // See https://plaid.com/docs/#create-link-token
 app.post('/api/create_link_token', async function (request, response) {
