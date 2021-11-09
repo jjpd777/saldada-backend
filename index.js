@@ -5,6 +5,13 @@ const util = require('util');
 const express = require('express');
 const bodyParser = require('body-parser');
 const moment = require('moment');
+const cors = require('cors');
+
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+};
 
 const APP_PORT = process.env.PORT || 8000;
 const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
@@ -76,6 +83,8 @@ app.use(
   }),
 );
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
+
 
 
 
