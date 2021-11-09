@@ -126,8 +126,10 @@ app.post('/api/create_link_token', async function (request, response) {
     const createTokenResponse = await client.linkTokenCreate(configs);
     prettyPrintResponse(createTokenResponse);
     response.json(createTokenResponse.data);
+    console.log("SUCCESSFUL ERROR RESPONSE:", error.response);
   } catch (error) {
     prettyPrintResponse(error.response);
+    console.log("SERVER ERROR RESPONSE:", error.response);
     return response.json(formatError(error.response));
   }
 });
