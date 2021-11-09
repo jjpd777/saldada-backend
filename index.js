@@ -510,6 +510,7 @@ const formatError = (error) => {
 // to obtain the data about that particular Transfer.
 
 const authorizeAndCreateTransfer = async (accessToken) => {
+  console.log("\nACCESS TOKEN PASSED\n",accessToken)
   try {
     // We call /accounts/get to obtain first account_id - in production,
     // account_id's should be persisted in a data store and retrieved
