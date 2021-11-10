@@ -18,7 +18,7 @@ const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
 const PLAID_SECRET = process.env.PLAID_SECRET;
 const PLAID_ENV = process.env.PLAID_ENV || 'sandbox';
 console.log(APP_PORT);
-console.log("PORT NUMB")
+console.log("PORT NUMB", APP_PORT);
 
 // PLAID_PRODUCTS is a comma-separated list of products to use when initializing
 // Link. Note that this list must contain 'assets' in order for the app to be
@@ -90,6 +90,7 @@ app.use(cors(corsOptions));
 
 
 app.post('/api/info', function (request, response, next) {
+  console.log("SUCCESSFULL  ACCESS_TOKEN", ITEM_ID, ACCESS_TOKEN)
   response.json({
     item_id: ITEM_ID,
     access_token: ACCESS_TOKEN,
@@ -98,13 +99,14 @@ app.post('/api/info', function (request, response, next) {
 });
 
 app.get('/t', function(request,response){
-  console.log("broo this is lol")
+  console.log("\n TESTING STANDARD GET ENDPOINT\n")
   try{response.send("Yoloppp99000 bro")}
   catch{response.send("brooo")}
 })
 // Create a link token with configs which we can then use to initialize Plaid Link client-side.
 // See https://plaid.com/docs/#create-link-token
 app.post('/api/create_link_token', async function (request, response) {
+  console.log("REQUEST FOR CREATE_LINK_TOKEN", request);
   const configs = {
     user: {
       // This should correspond to a unique id for the current user.
