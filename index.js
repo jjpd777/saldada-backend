@@ -106,7 +106,7 @@ app.get('/t', function(request,response){
 // Create a link token with configs which we can then use to initialize Plaid Link client-side.
 // See https://plaid.com/docs/#create-link-token
 app.post('/api/create_link_token', async function (request, response) {
-  console.log("REQUEST FOR CREATE_LINK_TOKEN", request);
+  console.log(request,"REQUEST FOR CREATE_LINK_TOKEN" );
   const configs = {
     user: {
       // This should correspond to a unique id for the current user.
@@ -129,7 +129,7 @@ app.post('/api/create_link_token', async function (request, response) {
     const createTokenResponse = await client.linkTokenCreate(configs);
     prettyPrintResponse(createTokenResponse);
     response.json(createTokenResponse.data);
-    console.log("SUCCESSFUL ERROR RESPONSE:", error.response);
+    console.log("SUCCESSFUL CREATE_LINK_TOKEN RESPONSE:", createTokenResponse.data);
   } catch (error) {
     prettyPrintResponse(error.response);
     console.log("SERVER ERROR RESPONSE:", error.response);
