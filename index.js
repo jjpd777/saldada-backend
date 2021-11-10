@@ -98,7 +98,7 @@ app.post('/api/info', function (request, response, next) {
   });
 });
 
-app.get('/t', function(request,response){
+app.get('/api/t', function(request,response){
   console.log("\n TESTING STANDARD GET ENDPOINT\n")
   try{response.send("Yoloppp99000 bro")}
   catch{response.send("brooo")}
