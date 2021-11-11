@@ -100,8 +100,11 @@ app.post('/api/info', function (request, response, next) {
 
 app.get('/t', function(request,response){
   console.log("\n TESTING STANDARD GET ENDPOINT\n")
-  try{response.send("Yoloppp99000 bro")}
-  catch{response.send("brooo")}
+  try{
+    response.json({successful7: true});
+  }
+  catch{response.json({successful7: false});
+  }
 })
 // Create a link token with configs which we can then use to initialize Plaid Link client-side.
 // See https://plaid.com/docs/#create-link-token
